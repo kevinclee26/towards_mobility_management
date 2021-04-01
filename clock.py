@@ -1,5 +1,5 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-import fetch
+# import fetch
 
 sched=BlockingScheduler()
 fetch_freq_mins=1
