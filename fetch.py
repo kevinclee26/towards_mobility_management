@@ -73,7 +73,9 @@ def get_bike_data(company_info):
 
 def all_scooter_data(): 
     for each_company in compInfo: 
-        print(each_company['name']+'-'+get_bike_data(each_company))
+        if each_company['hash']==False: 
+            get_bike_data(each_company)
+        # print(each_company['name']+'-'+get_bike_data(each_company))
     return 'compete'
 
 def weather_data():
