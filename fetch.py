@@ -24,7 +24,7 @@ scooter_docs=db.scooter_docs
 log=db.log
 
 # Initialize SQLAlchemy to work with Postgres
-conn = 'postgres://postgres:postgres@localhost:5432/scooters_DB'
+conn = 'postgresql://postgres:postgres@localhost:5432/scooters_DB'
 engine=sqlalchemy.create_engine(conn)
 
 # Define database and collection
