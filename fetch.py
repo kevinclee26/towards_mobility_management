@@ -123,8 +123,8 @@ def new_log_params(job_log):
          'processed': True}
     return record_params
 
-def update_existing_params(scooter, job_log): 
-    record_params={'path': scooter['path']+(scooter['lat'], scooter['lon']), 
+def update_existing_params(path, scooter, job_log): 
+    record_params={'path': path+(scooter['lat'], scooter['lon']), 
                    'lon': scooter['lon'], 
                    'lat': scooter['lat'],
                    'last_updated': job_log['last_updated'], 
@@ -170,7 +170,7 @@ def process_job(job):
         if not current_index==None: # if found then edit attributes  
             scooter_rec=current_fleet_list[current_index] 
             fleet_list.remove(current_id) # remove
-            scooter_params=update_existing_params(each_scooter, job)
+            scooter_params=update_existing_params(scooter_rec['path'], each_scooter, job)
             for key, value in scooter_params.items(): 
                 setattr(scooter_rec, key, value)
         else: # else new bike
