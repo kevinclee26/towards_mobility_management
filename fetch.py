@@ -124,7 +124,7 @@ def new_log_params(job_log):
     return record_params
 
 def update_existing_params(path, scooter, job_log): 
-    record_params={'path': path+(scooter['lat'], scooter['lon']), 
+    record_params={'path': path+f"({scooter['lat']}, {scooter['lon']})", 
                    'lon': scooter['lon'], 
                    'lat': scooter['lat'],
                    'last_updated': job_log['last_updated'], 
@@ -137,7 +137,7 @@ def update_existing_params(path, scooter, job_log):
 
 def new_scooter_params(scooter, job_log): 
     record_params={'start_time': job_log['last_updated'], 
-                   'path': (scooter['lat'], scooter['lon']), 
+                   'path': f"({scooter['lat']}, {scooter['lon']})", 
                    'bike_id': scooter['bike_id'], 
                    'company_name': job_log['name'], 
                    'start_is_reserved': scooter.get('is_reserved', None), 
