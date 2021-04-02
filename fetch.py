@@ -73,8 +73,8 @@ def get_bike_data(company_info):
 
 def all_scooter_data(): 
     for each_company in compInfo: 
-        if each_company['hash']==False: 
-            get_bike_data(each_company)
+        # if each_company['hash']==False: 
+        get_bike_data(each_company)
         # print(each_company['name']+'-'+get_bike_data(each_company))
     return 'compete'
 
@@ -123,8 +123,8 @@ def new_log_params(job_log):
     return record_params
 
 def update_existing_params(scooter, job_log): 
-    record_params={'lat': scooter['lat'], 
-                   'lon': scooter['lon'], 
+    record_params={'path': scooter['path']+(scooter['lat'], scooter['lon']), 
+                   'location': (scooter['lat'], scooter['lon'])
                    'last_updated': job_log['last_updated'], 
                    'is_reserved': scooter.get('is_reserved', None), 
                    'is_disabled': scooter.get('is_disabled', None), 
@@ -135,15 +135,13 @@ def update_existing_params(scooter, job_log):
 
 def new_scooter_params(scooter, job_log): 
     record_params={'start_time': job_log['last_updated'], 
-                   'start_lat': scooter['lat'], 
-                   'start_lon': scooter['lon'], 
+                   'path': (scooter['lat'], scooter['lon']), 
                    'bike_id': scooter['bike_id'], 
                    'company_name': job_log['name'], 
                    'start_is_reserved': scooter.get('is_reserved', None), 
-                   'start_is_diabled': scooter.get('is_disabled', None), 
+                   'start_is_disabled': scooter.get('is_disabled', None), 
                    'start_battery_level': scooter.get('battery_level', None), 
-                   'lat': scooter['lat'], 
-                   'lon': scooter['lon'], 
+                   'location': (scooter['lat'], scooter['lon']), 
                    'is_reserved': scooter.get('is_reserved', None),
                    'is_disabled': scooter.get('is_disabled', None), 
                    'battery_level': scooter.get('battery_level', None), 
