@@ -124,7 +124,8 @@ def new_log_params(job_log):
 
 def update_existing_params(scooter, job_log): 
     record_params={'path': scooter['path']+(scooter['lat'], scooter['lon']), 
-                   'location': (scooter['lat'], scooter['lon'])
+                   'lon': scooter['lon'], 
+                   'lat': scooter['lat'],
                    'last_updated': job_log['last_updated'], 
                    'is_reserved': scooter.get('is_reserved', None), 
                    'is_disabled': scooter.get('is_disabled', None), 
@@ -141,7 +142,8 @@ def new_scooter_params(scooter, job_log):
                    'start_is_reserved': scooter.get('is_reserved', None), 
                    'start_is_disabled': scooter.get('is_disabled', None), 
                    'start_battery_level': scooter.get('battery_level', None), 
-                   'location': (scooter['lat'], scooter['lon']), 
+                   'lon': scooter['lon'], 
+                   'lat': scooter['lat'], 
                    'is_reserved': scooter.get('is_reserved', None),
                    'is_disabled': scooter.get('is_disabled', None), 
                    'battery_level': scooter.get('battery_level', None), 
