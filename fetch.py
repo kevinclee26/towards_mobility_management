@@ -170,7 +170,7 @@ def process_job(job):
         if not current_index==None: # if found then edit attributes  
             scooter_rec=current_fleet_list[current_index] 
             fleet_list.remove(current_id) # remove
-            scooter_params=update_existing_params(scooter_rec['path'], each_scooter, job)
+            scooter_params=update_existing_params(scooter_rec.path, each_scooter, job)
             for key, value in scooter_params.items(): 
                 setattr(scooter_rec, key, value)
         else: # else new bike
