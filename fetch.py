@@ -60,14 +60,14 @@ def get_bike_data(company_info):
                         'size': sys.getsizeof(data)})
     except:
         # If a company url doesn't work, continue next company url, print the url that is not work
-        print(f"{name} url has issue")
+        # print(f"{name} url has issue")
         log.insert_one({'time': time.time(), 
                         'jobname': jobname, 
                         'name': name, 
                         'len': 0, 
                         'size': 0, 
                         'processed': False, 
-                        'last_updated': 'NA', 
+                        'last_updated': last_updated, 
                         'status': 'failed'}) 
     return 'complete'
 
@@ -100,7 +100,7 @@ def weather_data():
                         'name': 'weather', 
                         'size': sys.getsizeof(data)})  
     except:
-        print("weather url has issue")
+        # print("weather url has issue")
         log.insert_one({'time': time.time(), 
                         'jobname': jobname, 
                         'len': 0, 
