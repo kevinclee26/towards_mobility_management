@@ -37,13 +37,14 @@ Removed=Base.classes.removed
 def get_bike_data(company_info):
     name=company_info['name']
     jobname=secrets.token_urlsafe(16)
+    last_updated=time.time()
     try:
         response = requests.get(company_info["url"])
         response_json=response.json()
         try: 
             last_updated=response_json['last_updated']
         except: 
-            last_updated=time.time()
+            pass
         data=response_json
         for each_layer in company_info["layers"]:
             data = data[each_layer]
